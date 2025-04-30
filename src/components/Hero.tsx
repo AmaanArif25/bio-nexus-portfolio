@@ -1,7 +1,7 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import ThreeScene from './ThreeScene';
+import { ArrowRight, ChevronDown, Dna, Flask, BrainCircuit, Pills, Database } from 'lucide-react';
 
 const Hero = () => {
   return (
@@ -25,27 +25,27 @@ const Hero = () => {
           </h1>
           
           <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-            Combining genomic insights and computational expertise to solve complex biological problems
+            Integrating genomic insights with computational expertise to address complex biological challenges
             in cancer research, metagenomics, and precision medicine.
           </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button size="lg" className="bg-purple-600 hover:bg-purple-700 text-white px-8">
-              Explore My Work
+            <Button size="lg" className="bg-purple-600 hover:bg-purple-700 text-white px-8 group">
+              Explore My Work <ArrowRight className="ml-1 h-5 w-5 transition-transform group-hover:translate-x-1" />
             </Button>
             <Button size="lg" className="border-2 border-purple-500 bg-transparent hover:bg-purple-950/50 text-white px-8">
-              Contact Me
+              Schedule Consultation
             </Button>
           </div>
           
           <div className="mt-12 pt-6 border-t border-gray-800">
-            <p className="text-sm text-gray-400 mb-3">Expertise In</p>
+            <p className="text-sm text-gray-400 mb-3">Specialized Expertise In</p>
             <div className="flex flex-wrap justify-center gap-4">
-              <ExpertiseTag icon="🧬" text="Bioinformatics" />
-              <ExpertiseTag icon="🧪" text="Metagenomics" />
-              <ExpertiseTag icon="🤖" text="AI & ML" />
-              <ExpertiseTag icon="💊" text="Drug Discovery" />
-              <ExpertiseTag icon="🔬" text="Genomics" />
+              <ExpertiseTag text="Bioinformatics" icon={<Dna className="w-4 h-4 text-purple-300" strokeWidth={1.5} />} />
+              <ExpertiseTag text="Metagenomics" icon={<Flask className="w-4 h-4 text-purple-300" strokeWidth={1.5} />} />
+              <ExpertiseTag text="AI & Machine Learning" icon={<BrainCircuit className="w-4 h-4 text-purple-300" strokeWidth={1.5} />} />
+              <ExpertiseTag text="Drug Discovery" icon={<Pills className="w-4 h-4 text-purple-300" strokeWidth={1.5} />} />
+              <ExpertiseTag text="Genomics" icon={<Database className="w-4 h-4 text-purple-300" strokeWidth={1.5} />} />
             </div>
           </div>
         </div>
@@ -53,16 +53,14 @@ const Hero = () => {
       
       <div className="absolute bottom-10 left-0 right-0 flex justify-center animate-bounce">
         <a href="#about" className="text-gray-400 hover:text-white">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M7 13l5 5 5-5M7 6l5 5 5-5" />
-          </svg>
+          <ChevronDown className="w-8 h-8" />
         </a>
       </div>
     </section>
   );
 };
 
-const ExpertiseTag = ({ icon, text }: { icon: string, text: string }) => {
+const ExpertiseTag = ({ icon, text }: { icon: React.ReactNode, text: string }) => {
   return (
     <div className="bg-purple-900/30 backdrop-blur-sm px-4 py-2 rounded-full flex items-center space-x-2 border border-purple-800/50">
       <span>{icon}</span>

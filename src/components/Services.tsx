@@ -1,12 +1,12 @@
-
 import React from 'react';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { Database, BrainCircuit, Flask, BarChart3, BookOpen, Dna, Pills } from 'lucide-react';
 
 const Services = () => {
   const services = [
     {
-      icon: '🧬',
+      icon: <Dna className="w-10 h-10 text-purple-400" strokeWidth={1.5} />,
       title: 'NGS Data Analysis',
       description: 'Comprehensive analysis of next-generation sequencing data, including DNA/RNA-seq, ChIP-seq, and ATAC-seq, with custom pipelines and visualization.',
       features: [
@@ -18,7 +18,7 @@ const Services = () => {
       popular: false
     },
     {
-      icon: '🧪',
+      icon: <Flask className="w-10 h-10 text-purple-400" strokeWidth={1.5} />,
       title: 'Microbiome Analysis',
       description: 'In-depth characterization of microbial communities from metagenomic data, including taxonomic profiling and functional analysis.',
       features: [
@@ -30,7 +30,7 @@ const Services = () => {
       popular: true
     },
     {
-      icon: '🤖',
+      icon: <BrainCircuit className="w-10 h-10 text-purple-400" strokeWidth={1.5} />,
       title: 'AI & ML in Genomics',
       description: 'Development and application of machine learning models for genomic data analysis and biomarker discovery.',
       features: [
@@ -42,7 +42,7 @@ const Services = () => {
       popular: false
     },
     {
-      icon: '💊',
+      icon: <Pills className="w-10 h-10 text-purple-400" strokeWidth={1.5} />,
       title: 'Drug Discovery',
       description: 'Computational approaches to accelerate drug discovery, including virtual screening, molecular docking, and pharmacogenomics.',
       features: [
@@ -54,7 +54,7 @@ const Services = () => {
       popular: false
     },
     {
-      icon: '📊',
+      icon: <BarChart3 className="w-10 h-10 text-purple-400" strokeWidth={1.5} />,
       title: 'Data Visualization',
       description: 'Creation of clear, interactive visualizations for complex biological datasets to facilitate interpretation and discovery.',
       features: [
@@ -66,7 +66,7 @@ const Services = () => {
       popular: false
     },
     {
-      icon: '🧠',
+      icon: <BookOpen className="w-10 h-10 text-purple-400" strokeWidth={1.5} />,
       title: 'Training & Consultation',
       description: 'Personalized training and consultation services for researchers and organizations in bioinformatics and computational biology.',
       features: [
@@ -83,11 +83,11 @@ const Services = () => {
     <section id="services" className="py-20">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold header-gradient mb-4">Services & Solutions</h2>
+          <h2 className="text-3xl md:text-4xl font-bold header-gradient mb-4">Professional Services</h2>
           <div className="h-1 w-20 bg-purple-600 mx-auto rounded"></div>
           <p className="mt-4 text-gray-300 max-w-3xl mx-auto">
-            Expert bioinformatics and computational biology services to accelerate your research
-            and unlock insights from complex biological data.
+            Specialized bioinformatics and computational biology services to accelerate research initiatives
+            and extract actionable insights from complex genomic data.
           </p>
         </div>
         
@@ -101,12 +101,12 @@ const Services = () => {
             >
               {service.popular && (
                 <div className="bg-purple-600 text-white text-xs font-bold px-3 py-1 text-center">
-                  MOST POPULAR
+                  MOST REQUESTED
                 </div>
               )}
               
               <CardHeader>
-                <div className="text-4xl mb-4">{service.icon}</div>
+                <div className="mb-4 flex items-center justify-center">{service.icon}</div>
                 <CardTitle className="text-xl text-white">{service.title}</CardTitle>
                 <CardDescription className="text-gray-400">{service.description}</CardDescription>
               </CardHeader>
@@ -134,7 +134,7 @@ const Services = () => {
                       : 'bg-purple-900/50 hover:bg-purple-700 border border-purple-700'
                   }`}
                 >
-                  Book Service
+                  Request Service
                 </Button>
               </CardFooter>
             </Card>
@@ -143,12 +143,12 @@ const Services = () => {
         
         <div className="mt-16 text-center">
           <div className="max-w-3xl mx-auto p-6 rounded-xl bg-gradient-to-r from-purple-900/30 to-purple-800/20 border border-purple-700/30">
-            <h3 className="text-2xl font-bold text-white mb-3">Need a custom solution?</h3>
+            <h3 className="text-2xl font-bold text-white mb-3">Need a specialized solution?</h3>
             <p className="text-gray-300 mb-6">
-              Contact me for personalized bioinformatics services tailored to your specific research needs.
+              Contact me for customized bioinformatics services tailored to your specific research requirements.
             </p>
             <Button size="lg" className="bg-purple-600 hover:bg-purple-700 px-8">
-              Request Custom Service
+              Request Consultation
             </Button>
           </div>
         </div>

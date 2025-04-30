@@ -1,7 +1,28 @@
-
 import React, { useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { 
+  BrainCircuit, 
+  Code, 
+  Microscope, 
+  Wrench,
+  Dna,
+  Flask,
+  Activity,
+  Database,
+  Network,
+  FileCode,
+  BarChart3,
+  Terminal,
+  Coffee,
+  Globe,
+  Shield,
+  Pills,
+  Puzzle,
+  Rocket,
+  Cloud,
+  Server
+} from 'lucide-react';
 
 const Skills = () => {
   const [activeSkill, setActiveSkill] = useState<string | null>(null);
@@ -10,53 +31,53 @@ const Skills = () => {
     {
       id: 'core',
       name: 'Core Skills',
-      icon: '🧠',
+      icon: <BrainCircuit className="w-5 h-5 text-purple-400" />,
       skills: [
-        { name: 'Bioinformatics & Computational Biology', level: 90, icon: '🧬' },
-        { name: 'Metagenomics & Gut Microbiome Analysis', level: 85, icon: '🧪' },
-        { name: 'Cancer Bioinformatics (Precision Oncology)', level: 80, icon: '🎗️' },
-        { name: 'AI & ML in Healthcare & Genomics', level: 85, icon: '🤖' },
-        { name: 'NGS Data Analysis (DNA, RNA, Epigenomics)', level: 95, icon: '🧬' },
-        { name: 'Systems Biology & Network Analysis', level: 80, icon: '🧠' },
+        { name: 'Bioinformatics & Computational Biology', level: 90, icon: <Dna className="w-6 h-6 text-purple-400" /> },
+        { name: 'Metagenomics & Gut Microbiome Analysis', level: 85, icon: <Flask className="w-6 h-6 text-purple-400" /> },
+        { name: 'Cancer Bioinformatics (Precision Oncology)', level: 80, icon: <Activity className="w-6 h-6 text-purple-400" /> },
+        { name: 'AI & ML in Healthcare & Genomics', level: 85, icon: <BrainCircuit className="w-6 h-6 text-purple-400" /> },
+        { name: 'NGS Data Analysis (DNA, RNA, Epigenomics)', level: 95, icon: <Database className="w-6 h-6 text-purple-400" /> },
+        { name: 'Systems Biology & Network Analysis', level: 80, icon: <Network className="w-6 h-6 text-purple-400" /> },
       ],
     },
     {
       id: 'technical',
       name: 'Technical Skills',
-      icon: '💻',
+      icon: <Code className="w-5 h-5 text-purple-400" />,
       skills: [
-        { name: 'Python', level: 95, icon: '🐍' },
-        { name: 'R', level: 90, icon: '📊' },
-        { name: 'Perl', level: 75, icon: '🔧' },
-        { name: 'Java', level: 70, icon: '☕' },
-        { name: 'HTML/CSS/JavaScript', level: 80, icon: '🌐' },
-        { name: 'ReactJS', level: 75, icon: '⚛️' },
+        { name: 'Python', level: 95, icon: <FileCode className="w-6 h-6 text-purple-400" /> },
+        { name: 'R', level: 90, icon: <BarChart3 className="w-6 h-6 text-purple-400" /> },
+        { name: 'Perl', level: 75, icon: <Terminal className="w-6 h-6 text-purple-400" /> },
+        { name: 'Java', level: 70, icon: <Coffee className="w-6 h-6 text-purple-400" /> },
+        { name: 'HTML/CSS/JavaScript', level: 80, icon: <Globe className="w-6 h-6 text-purple-400" /> },
+        { name: 'ReactJS', level: 75, icon: <Code className="w-6 h-6 text-purple-400" /> },
       ],
     },
     {
       id: 'specialized',
       name: 'Specialized Research',
-      icon: '🔬',
+      icon: <Microscope className="w-5 h-5 text-purple-400" />,
       skills: [
-        { name: 'Immunoinformatics & Vaccine Design', level: 85, icon: '🧫' },
-        { name: 'Molecular Docking & Drug Discovery', level: 80, icon: '💊' },
-        { name: 'Genome Assembly & Scaffolding', level: 90, icon: '🔬' },
-        { name: 'Single Cell Genomics', level: 75, icon: '🧫' },
-        { name: 'SpaceOmics', level: 70, icon: '🌌' },
-        { name: 'NeuroOmics', level: 75, icon: '🧠' },
+        { name: 'Immunoinformatics & Vaccine Design', level: 85, icon: <Shield className="w-6 h-6 text-purple-400" /> },
+        { name: 'Molecular Docking & Drug Discovery', level: 80, icon: <Pills className="w-6 h-6 text-purple-400" /> },
+        { name: 'Genome Assembly & Scaffolding', level: 90, icon: <Puzzle className="w-6 h-6 text-purple-400" /> },
+        { name: 'Single Cell Genomics', level: 75, icon: <Microscope className="w-6 h-6 text-purple-400" /> },
+        { name: 'SpaceOmics', level: 70, icon: <Rocket className="w-6 h-6 text-purple-400" /> },
+        { name: 'NeuroOmics', level: 75, icon: <BrainCircuit className="w-6 h-6 text-purple-400" /> },
       ],
     },
     {
       id: 'tools',
       name: 'Tools & Platforms',
-      icon: '🛠️',
+      icon: <Wrench className="w-5 h-5 text-purple-400" />,
       skills: [
-        { name: 'TensorFlow / Keras / PyTorch', level: 85, icon: '🤖' },
-        { name: 'MySQL / MongoDB / PostgreSQL', level: 80, icon: '🗃️' },
-        { name: 'AWS / Google Cloud', level: 75, icon: '☁️' },
-        { name: 'Tableau / Power BI', level: 80, icon: '📊' },
-        { name: 'Scikit-learn / Pandas / NumPy', level: 90, icon: '📈' },
-        { name: 'Docker / Kubernetes', level: 75, icon: '🐳' },
+        { name: 'TensorFlow / Keras / PyTorch', level: 85, icon: <BrainCircuit className="w-6 h-6 text-purple-400" /> },
+        { name: 'MySQL / MongoDB / PostgreSQL', level: 80, icon: <Database className="w-6 h-6 text-purple-400" /> },
+        { name: 'AWS / Google Cloud', level: 75, icon: <Cloud className="w-6 h-6 text-purple-400" /> },
+        { name: 'Tableau / Power BI', level: 80, icon: <BarChart3 className="w-6 h-6 text-purple-400" /> },
+        { name: 'Scikit-learn / Pandas / NumPy', level: 90, icon: <FileCode className="w-6 h-6 text-purple-400" /> },
+        { name: 'Docker / Kubernetes', level: 75, icon: <Server className="w-6 h-6 text-purple-400" /> },
       ],
     },
   ];
@@ -69,11 +90,11 @@ const Skills = () => {
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold header-gradient mb-4">My Skills & Expertise</h2>
+          <h2 className="text-3xl md:text-4xl font-bold header-gradient mb-4">Technical Expertise</h2>
           <div className="h-1 w-20 bg-purple-600 mx-auto rounded"></div>
           <p className="mt-4 text-gray-300 max-w-3xl mx-auto">
-            My multidisciplinary toolkit combines biological knowledge with computational methods
-            to extract meaningful insights from complex genomic data.
+            My interdisciplinary expertise integrates biological knowledge with advanced computational methodologies
+            to derive meaningful insights from complex genomic datasets.
           </p>
         </div>
         
