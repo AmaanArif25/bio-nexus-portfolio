@@ -1,7 +1,8 @@
+
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import ThreeScene from './ThreeScene';
-import { ArrowRight, ChevronDown, Dna, Flask, BrainCircuit, Pills, Database } from 'lucide-react';
+import { ArrowRight, ChevronDown, Dna, BrainCircuit, Database } from 'lucide-react';
 
 const Hero = () => {
   return (
@@ -42,10 +43,10 @@ const Hero = () => {
             <p className="text-sm text-gray-400 mb-3">Specialized Expertise In</p>
             <div className="flex flex-wrap justify-center gap-4">
               <ExpertiseTag text="Bioinformatics" icon={<Dna className="w-4 h-4 text-purple-300" strokeWidth={1.5} />} />
-              <ExpertiseTag text="Metagenomics" icon={<Flask className="w-4 h-4 text-purple-300" strokeWidth={1.5} />} />
+              <ExpertiseTag text="Metagenomics" icon={<Database className="w-4 h-4 text-purple-300" strokeWidth={1.5} />} />
               <ExpertiseTag text="AI & Machine Learning" icon={<BrainCircuit className="w-4 h-4 text-purple-300" strokeWidth={1.5} />} />
-              <ExpertiseTag text="Drug Discovery" icon={<Pills className="w-4 h-4 text-purple-300" strokeWidth={1.5} />} />
-              <ExpertiseTag text="Genomics" icon={<Database className="w-4 h-4 text-purple-300" strokeWidth={1.5} />} />
+              <ExpertiseTag text="Drug Discovery" icon={<Database className="w-4 h-4 text-purple-300" strokeWidth={1.5} />} />
+              <ExpertiseTag text="Genomics" icon={<Dna className="w-4 h-4 text-purple-300" strokeWidth={1.5} />} />
             </div>
           </div>
         </div>

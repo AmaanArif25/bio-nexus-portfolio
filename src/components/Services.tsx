@@ -1,7 +1,8 @@
+
 import React from 'react';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Database, BrainCircuit, Flask, BarChart3, BookOpen, Dna, Pills } from 'lucide-react';
+import { Database, BrainCircuit, BarChart3, BookOpen, Dna } from 'lucide-react';
 
 const Services = () => {
   const services = [
@@ -18,7 +19,7 @@ const Services = () => {
       popular: false
     },
     {
-      icon: <Flask className="w-10 h-10 text-purple-400" strokeWidth={1.5} />,
+      icon: <Database className="w-10 h-10 text-purple-400" strokeWidth={1.5} />,
       title: 'Microbiome Analysis',
       description: 'In-depth characterization of microbial communities from metagenomic data, including taxonomic profiling and functional analysis.',
       features: [
@@ -42,7 +43,7 @@ const Services = () => {
       popular: false
     },
     {
-      icon: <Pills className="w-10 h-10 text-purple-400" strokeWidth={1.5} />,
+      icon: <Dna className="w-10 h-10 text-purple-400" strokeWidth={1.5} />,
       title: 'Drug Discovery',
       description: 'Computational approaches to accelerate drug discovery, including virtual screening, molecular docking, and pharmacogenomics.',
       features: [

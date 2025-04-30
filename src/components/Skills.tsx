@@ -7,7 +7,6 @@ import {
   Microscope, 
   Wrench,
   Dna,
-  Flask,
   Activity,
   Database,
   Network,
@@ -17,7 +16,6 @@ import {
   Coffee,
   Globe,
   Shield,
-  Pills,
   Puzzle,
   Rocket,
   Cloud,
@@ -34,7 +32,7 @@ const Skills = () => {
       icon: <BrainCircuit className="w-5 h-5 text-purple-400" />,
       skills: [
         { name: 'Bioinformatics & Computational Biology', level: 90, icon: <Dna className="w-6 h-6 text-purple-400" /> },
-        { name: 'Metagenomics & Gut Microbiome Analysis', level: 85, icon: <Flask className="w-6 h-6 text-purple-400" /> },
+        { name: 'Metagenomics & Gut Microbiome Analysis', level: 85, icon: <Database className="w-6 h-6 text-purple-400" /> },
         { name: 'Cancer Bioinformatics (Precision Oncology)', level: 80, icon: <Activity className="w-6 h-6 text-purple-400" /> },
         { name: 'AI & ML in Healthcare & Genomics', level: 85, icon: <BrainCircuit className="w-6 h-6 text-purple-400" /> },
         { name: 'NGS Data Analysis (DNA, RNA, Epigenomics)', level: 95, icon: <Database className="w-6 h-6 text-purple-400" /> },
@@ -60,7 +58,7 @@ const Skills = () => {
       icon: <Microscope className="w-5 h-5 text-purple-400" />,
       skills: [
         { name: 'Immunoinformatics & Vaccine Design', level: 85, icon: <Shield className="w-6 h-6 text-purple-400" /> },
-        { name: 'Molecular Docking & Drug Discovery', level: 80, icon: <Pills className="w-6 h-6 text-purple-400" /> },
+        { name: 'Molecular Docking & Drug Discovery', level: 80, icon: <Dna className="w-6 h-6 text-purple-400" /> },
         { name: 'Genome Assembly & Scaffolding', level: 90, icon: <Puzzle className="w-6 h-6 text-purple-400" /> },
         { name: 'Single Cell Genomics', level: 75, icon: <Microscope className="w-6 h-6 text-purple-400" /> },
         { name: 'SpaceOmics', level: 70, icon: <Rocket className="w-6 h-6 text-purple-400" /> },

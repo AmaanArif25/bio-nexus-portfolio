@@ -1,8 +1,7 @@
-
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Database, BrainCircuit, Flask, BarChart3, Microscope, Pills } from 'lucide-react';
+import { Database, BrainCircuit, BarChart3, Microscope, Dna } from 'lucide-react';
 
 const Projects = () => {
   const [activeFilter, setActiveFilter] = useState('all');
@@ -23,7 +22,7 @@ const Projects = () => {
       image: 'https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&q=80&w=800&h=500',
       categories: ['genomics'],
       tech: ['Python', 'R', 'QIIME2', 'PICRUSt2'],
-      icon: <Flask className="w-12 h-12 text-purple-400" strokeWidth={1.5} />
+      icon: <Database className="w-12 h-12 text-purple-400" strokeWidth={1.5} />
     },
     {
       id: 2,
@@ -41,7 +40,7 @@ const Projects = () => {
       image: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=800&h=500',
       categories: ['drug-discovery'],
       tech: ['AutoDock Vina', 'PyMOL', 'ZINC Database', 'GROMACS'],
-      icon: <Pills className="w-12 h-12 text-purple-400" strokeWidth={1.5} />
+      icon: <Dna className="w-12 h-12 text-purple-400" strokeWidth={1.5} />
     },
     {
       id: 4,
