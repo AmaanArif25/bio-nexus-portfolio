@@ -17,8 +17,10 @@ import {
   Globe,
   Cloud,
   Server,
-  Atom
+  Atom,
+  Flask
 } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 const CircularProgress = ({ value, size = 120, strokeWidth = 10, label, icon }: { 
   value: number; 
@@ -90,54 +92,174 @@ const Skills = () => {
   const skillCategories = [
     {
       id: 'bioinformatics',
-      name: 'Bioinformatics',
+      name: 'Bioinformatics & Computational Biology',
       icon: <Dna className="w-5 h-5 text-purple-400" />,
       skills: [
-        { name: 'Metagenomics & Microbiome Analysis', level: 92, icon: <Database className="w-8 h-8" /> },
-        { name: 'Cancer Bioinformatics', level: 90, icon: <Atom className="w-8 h-8" /> },
-        { name: 'NGS Data Analysis', level: 94, icon: <Dna className="w-8 h-8" /> },
-        { name: 'Systems Biology & Networks', level: 85, icon: <Network className="w-8 h-8" /> },
-        { name: 'Immunoinformatics', level: 88, icon: <Microscope className="w-8 h-8" /> },
-        { name: 'Molecular Docking', level: 86, icon: <Atom className="w-8 h-8" /> },
-      ],
-    },
-    {
-      id: 'ai-ml',
-      name: 'AI & ML',
-      icon: <BrainCircuit className="w-5 h-5 text-purple-400" />,
-      skills: [
-        { name: 'TensorFlow & Keras', level: 88, icon: <BrainCircuit className="w-8 h-8" /> },
-        { name: 'Scikit-learn & PyTorch', level: 86, icon: <Code className="w-8 h-8" /> },
-        { name: 'NLP & Large Language Models', level: 82, icon: <FileCode className="w-8 h-8" /> },
-        { name: 'Computer Vision & OpenCV', level: 80, icon: <BrainCircuit className="w-8 h-8" /> },
-        { name: 'XGBoost & AutoML', level: 85, icon: <BarChart3 className="w-8 h-8" /> },
-        { name: 'Generative AI Applications', level: 78, icon: <BrainCircuit className="w-8 h-8" /> },
-      ],
-    },
-    {
-      id: 'programming',
-      name: 'Programming',
-      icon: <Code className="w-5 h-5 text-purple-400" />,
-      skills: [
-        { name: 'Python', level: 95, icon: <FileCode className="w-8 h-8" /> },
-        { name: 'R', level: 92, icon: <BarChart3 className="w-8 h-8" /> },
-        { name: 'Perl & Shell/Bash', level: 88, icon: <Terminal className="w-8 h-8" /> },
-        { name: 'Java & C++', level: 80, icon: <Code className="w-8 h-8" /> },
-        { name: 'JavaScript & ReactJS', level: 85, icon: <Globe className="w-8 h-8" /> },
-        { name: 'SQL & NoSQL', level: 86, icon: <Database className="w-8 h-8" /> },
+        { 
+          name: 'Metagenomics & Gut Microbiome Analysis', 
+          level: 92, 
+          icon: <Database className="w-8 h-8" />,
+          tools: ['QIIME2', 'MetaPhlAn', 'HUMAnN', 'Kraken2']
+        },
+        { 
+          name: 'Cancer Bioinformatics & Precision Oncology', 
+          level: 90, 
+          icon: <Atom className="w-8 h-8" />,
+          tools: ['cBioPortal', 'TCGA', 'maftools', 'OncoKB']
+        },
+        { 
+          name: 'NGS Data Analysis', 
+          level: 94, 
+          icon: <Dna className="w-8 h-8" />,
+          tools: ['FASTQC', 'BWA', 'STAR', 'HISAT2', 'GATK', 'DESeq2']
+        },
+        { 
+          name: 'Systems Biology & Network Analysis', 
+          level: 85, 
+          icon: <Network className="w-8 h-8" />,
+          tools: ['Cytoscape', 'STRING', 'Gephi', 'BioGRID', 'NetBioV']
+        },
+        { 
+          name: 'Immunoinformatics & Vaccine Design', 
+          level: 88, 
+          icon: <Microscope className="w-8 h-8" />,
+          tools: ['IEDB', 'VaxiJen', 'NetMHCpan', 'AutoDock', 'PyMOL']
+        },
+        { 
+          name: 'Molecular Docking & Drug Discovery', 
+          level: 86, 
+          icon: <Flask className="w-8 h-8" />,
+          tools: ['AutoDock Vina', 'PyRx', 'Discovery Studio', 'SwissADME']
+        },
       ],
     },
     {
       id: 'specialized',
-      name: 'Specialized',
+      name: 'Specialized Expertise',
       icon: <Microscope className="w-5 h-5 text-purple-400" />,
       skills: [
-        { name: 'Genome Assembly & Scaffolding', level: 90, icon: <Dna className="w-8 h-8" /> },
-        { name: 'Single Cell Genomics', level: 88, icon: <Microscope className="w-8 h-8" /> },
-        { name: 'NeuroOmics & SpaceOmics', level: 80, icon: <Atom className="w-8 h-8" /> },
-        { name: 'Metabolomics', level: 84, icon: <Terminal className="w-8 h-8" /> },
-        { name: 'Data Visualization', level: 90, icon: <BarChart3 className="w-8 h-8" /> },
-        { name: 'Cloud Computing & Big Data', level: 85, icon: <Cloud className="w-8 h-8" /> },
+        { 
+          name: 'Genome Assembly & Advanced Scaffolding', 
+          level: 90, 
+          icon: <Dna className="w-8 h-8" />,
+          tools: ['SPAdes', 'Velvet', 'SOAPdenovo', 'RagTag', 'MeDuSa']
+        },
+        { 
+          name: 'Single Cell Genomics', 
+          level: 88, 
+          icon: <Microscope className="w-8 h-8" />,
+          tools: ['Seurat', 'Scanpy', 'Cell Ranger']
+        },
+        { 
+          name: 'NeuroOmics & SpaceOmics', 
+          level: 80, 
+          icon: <Atom className="w-8 h-8" />,
+          tools: ['Allen Brain Atlas', 'OmicsBox', 'NASA GeneLab tools']
+        },
+        { 
+          name: 'Metabolomics', 
+          level: 84, 
+          icon: <Flask className="w-8 h-8" />,
+          tools: ['MetaboAnalyst', 'XCMS', 'GNPS', 'mzMine']
+        },
+        { 
+          name: 'Data Visualization in Bioinformatics', 
+          level: 90, 
+          icon: <BarChart3 className="w-8 h-8" />,
+          tools: ['ggplot2', 'BioRender', 'GraphPad Prism', 'Cytoscape']
+        },
+        { 
+          name: 'Cloud Computing & Big Data', 
+          level: 85, 
+          icon: <Cloud className="w-8 h-8" />,
+          tools: ['AWS', 'Google Cloud', 'Kubernetes', 'Hadoop']
+        },
+      ],
+    },
+    {
+      id: 'programming',
+      name: 'Programming & Development',
+      icon: <Code className="w-5 h-5 text-purple-400" />,
+      skills: [
+        { 
+          name: 'Python', 
+          level: 95, 
+          icon: <FileCode className="w-8 h-8" />,
+          tools: ['NumPy', 'Pandas', 'Biopython', 'SciPy', 'Matplotlib']
+        },
+        { 
+          name: 'R', 
+          level: 92, 
+          icon: <BarChart3 className="w-8 h-8" />,
+          tools: ['Bioconductor', 'dplyr', 'ggplot2', 'DESeq2', 'limma']
+        },
+        { 
+          name: 'Scripting & System Administration', 
+          level: 88, 
+          icon: <Terminal className="w-8 h-8" />,
+          tools: ['Perl', 'Shell/Bash', 'Awk', 'Sed', 'Cron']
+        },
+        { 
+          name: 'Object-Oriented Programming', 
+          level: 80, 
+          icon: <Code className="w-8 h-8" />,
+          tools: ['Java', 'C++', 'Object-Oriented Design']
+        },
+        { 
+          name: 'Web Development', 
+          level: 85, 
+          icon: <Globe className="w-8 h-8" />,
+          tools: ['HTML/CSS', 'JavaScript', 'ReactJS', 'Django', 'Flask']
+        },
+        { 
+          name: 'Database Management', 
+          level: 86, 
+          icon: <Database className="w-8 h-8" />,
+          tools: ['MySQL', 'MongoDB', 'PostgreSQL', 'Oracle', 'SQLite']
+        },
+      ],
+    },
+    {
+      id: 'ai-ml',
+      name: 'AI & Machine Learning',
+      icon: <BrainCircuit className="w-5 h-5 text-purple-400" />,
+      skills: [
+        { 
+          name: 'Deep Learning', 
+          level: 88, 
+          icon: <BrainCircuit className="w-8 h-8" />,
+          tools: ['TensorFlow', 'Keras', 'Neural Networks', 'CNN', 'RNN']
+        },
+        { 
+          name: 'Classical Machine Learning', 
+          level: 86, 
+          icon: <Code className="w-8 h-8" />,
+          tools: ['Scikit-learn', 'PyTorch', 'Random Forest', 'SVM', 'Clustering']
+        },
+        { 
+          name: 'Natural Language Processing', 
+          level: 82, 
+          icon: <FileCode className="w-8 h-8" />,
+          tools: ['NLTK', 'spaCy', 'BERT', 'Transformers', 'LLMs']
+        },
+        { 
+          name: 'Computer Vision', 
+          level: 80, 
+          icon: <BrainCircuit className="w-8 h-8" />,
+          tools: ['OpenCV', 'TensorFlow Image', 'Object Detection', 'Image Segmentation']
+        },
+        { 
+          name: 'Advanced Analytics', 
+          level: 85, 
+          icon: <BarChart3 className="w-8 h-8" />,
+          tools: ['XGBoost', 'AutoML', 'Feature Engineering', 'Gradient Boosting']
+        },
+        { 
+          name: 'Generative AI Applications', 
+          level: 78, 
+          icon: <BrainCircuit className="w-8 h-8" />,
+          tools: ['GANs', 'Diffusion Models', 'Stable Diffusion', 'GPT Integration']
+        },
       ],
     },
   ];
@@ -169,7 +291,7 @@ const Skills = () => {
               <TabsTrigger 
                 key={category.id}
                 value={category.id}
-                className="data-[state=active]:bg-purple-900/50 data-[state=active]:text-white py-3"
+                className="data-[state=active]:bg-purple-900/50 data-[state=active]:text-white py-3 transition-all duration-300 hover:bg-purple-800/30"
               >
                 <span className="mr-2">{category.icon}</span>
                 {category.name}
@@ -179,84 +301,35 @@ const Skills = () => {
           
           {skillCategories.map((category) => (
             <TabsContent key={category.id} value={category.id} className="mt-6 animate-fade-in">
-              <Card className="bg-bio-card border-purple-800/30 p-6">
+              <Card className="bg-bio-card border-purple-800/30 p-6 hover:border-purple-700/50 transition-all duration-300">
                 <CardContent className="p-0">
                   <h3 className="text-xl font-medium text-purple-300 mb-8 text-center">{category.name} Expertise</h3>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
                     {category.skills.map((skill, index) => (
-                      <div key={index} className="flex flex-col items-center">
+                      <div key={index} className="flex flex-col items-center p-4 rounded-lg hover:bg-purple-900/20 transition-all duration-300">
                         <CircularProgress 
                           value={skill.level} 
                           label={skill.name} 
                           icon={skill.icon} 
                         />
+                        <div className="mt-4 flex flex-wrap gap-2 justify-center">
+                          {skill.tools.map((tool, i) => (
+                            <ToolTag key={i} text={tool} />
+                          ))}
+                        </div>
                       </div>
                     ))}
                   </div>
                   
                   <div className="mt-10 pt-8 border-t border-purple-800/30">
-                    <h4 className="text-lg font-medium text-purple-300 mb-4">Tools & Technologies</h4>
-                    <div className="flex flex-wrap gap-3">
-                      {category.id === 'bioinformatics' && (
-                        <>
-                          <ToolTag text="QIIME2" />
-                          <ToolTag text="MetaPhlAn" />
-                          <ToolTag text="HUMAnN" />
-                          <ToolTag text="TCGA" />
-                          <ToolTag text="maftools" />
-                          <ToolTag text="BWA" />
-                          <ToolTag text="STAR" />
-                          <ToolTag text="GATK" />
-                          <ToolTag text="DESeq2" />
-                          <ToolTag text="EdgeR" />
-                          <ToolTag text="Cytoscape" />
-                        </>
-                      )}
-                      {category.id === 'ai-ml' && (
-                        <>
-                          <ToolTag text="TensorFlow" />
-                          <ToolTag text="Keras" />
-                          <ToolTag text="PyTorch" />
-                          <ToolTag text="scikit-learn" />
-                          <ToolTag text="XGBoost" />
-                          <ToolTag text="OpenCV" />
-                          <ToolTag text="NLP" />
-                          <ToolTag text="LLMs" />
-                          <ToolTag text="AutoML" />
-                          <ToolTag text="Transformers" />
-                        </>
-                      )}
-                      {category.id === 'programming' && (
-                        <>
-                          <ToolTag text="Python" />
-                          <ToolTag text="R" />
-                          <ToolTag text="Perl" />
-                          <ToolTag text="Java" />
-                          <ToolTag text="C++" />
-                          <ToolTag text="Shell/Bash" />
-                          <ToolTag text="HTML/CSS" />
-                          <ToolTag text="JavaScript" />
-                          <ToolTag text="ReactJS" />
-                          <ToolTag text="Django" />
-                          <ToolTag text="Flask" />
-                        </>
-                      )}
-                      {category.id === 'specialized' && (
-                        <>
-                          <ToolTag text="SPAdes" />
-                          <ToolTag text="Velvet" />
-                          <ToolTag text="RagTag" />
-                          <ToolTag text="Seurat" />
-                          <ToolTag text="Scanpy" />
-                          <ToolTag text="Cell Ranger" />
-                          <ToolTag text="Allen Brain Atlas" />
-                          <ToolTag text="NASA GeneLab" />
-                          <ToolTag text="MetaboAnalyst" />
-                          <ToolTag text="XCMS" />
-                          <ToolTag text="ggplot2" />
-                          <ToolTag text="BioRender" />
-                        </>
-                      )}
+                    <div className="flex justify-center">
+                      <Button 
+                        variant="outline" 
+                        className="bg-purple-900/50 hover:bg-purple-800 text-white border-purple-700 transition-all duration-300"
+                        onClick={() => window.open('/#contact', '_self')}
+                      >
+                        Discuss Your Project
+                      </Button>
                     </div>
                   </div>
                 </CardContent>
@@ -271,7 +344,7 @@ const Skills = () => {
 
 const ToolTag = ({ text }: { text: string }) => {
   return (
-    <span className="bg-purple-900/50 text-purple-200 text-xs px-3 py-1 rounded-full border border-purple-800/30">
+    <span className="bg-purple-900/50 text-purple-200 text-xs px-3 py-1 rounded-full border border-purple-800/30 hover:bg-purple-800/60 cursor-default transition-colors">
       {text}
     </span>
   );

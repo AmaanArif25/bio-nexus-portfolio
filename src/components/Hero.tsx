@@ -21,9 +21,13 @@ const Hero = () => {
             </div>
           </div>
           
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-4 glow purple-gradient-text">
-            Decoding Life's Blueprints
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-2 glow purple-gradient-text">
+            Amaan Arif
           </h1>
+          
+          <h2 className="text-2xl md:text-3xl font-bold mb-4 text-purple-300">
+            Decoding Life's Blueprints
+          </h2>
           
           <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
             Integrating genomic insights with computational expertise to address complex biological challenges
@@ -31,10 +35,18 @@ const Hero = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button size="lg" className="bg-purple-600 hover:bg-purple-700 text-white px-8 group">
+            <Button 
+              size="lg" 
+              className="bg-purple-600 hover:bg-purple-700 text-white px-8 group transition-all duration-300"
+              onClick={() => window.open('/#projects', '_self')}
+            >
               Explore My Work <ArrowRight className="ml-1 h-5 w-5 transition-transform group-hover:translate-x-1" />
             </Button>
-            <Button size="lg" className="border-2 border-purple-500 bg-transparent hover:bg-purple-950/50 text-white px-8">
+            <Button 
+              size="lg" 
+              className="border-2 border-purple-500 bg-transparent hover:bg-purple-950/50 text-white px-8 transition-all duration-300"
+              onClick={() => window.open('/#contact', '_self')}
+            >
               Schedule Consultation
             </Button>
           </div>
@@ -53,7 +65,7 @@ const Hero = () => {
       </div>
       
       <div className="absolute bottom-10 left-0 right-0 flex justify-center animate-bounce">
-        <a href="#about" className="text-gray-400 hover:text-white">
+        <a href="#about" className="text-gray-400 hover:text-white transition-colors duration-300">
           <ChevronDown className="w-8 h-8" />
         </a>
       </div>
@@ -63,7 +75,7 @@ const Hero = () => {
 
 const ExpertiseTag = ({ icon, text }: { icon: React.ReactNode, text: string }) => {
   return (
-    <div className="bg-purple-900/30 backdrop-blur-sm px-4 py-2 rounded-full flex items-center space-x-2 border border-purple-800/50">
+    <div className="bg-purple-900/30 backdrop-blur-sm px-4 py-2 rounded-full flex items-center space-x-2 border border-purple-800/50 hover:bg-purple-800/40 transition-all duration-300 cursor-pointer">
       <span>{icon}</span>
       <span className="text-sm font-medium text-gray-200">{text}</span>
     </div>
