@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -17,8 +16,7 @@ import {
   Globe,
   Cloud,
   Server,
-  Atom,
-  Flask
+  Atom
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
@@ -128,7 +126,7 @@ const Skills = () => {
         { 
           name: 'Molecular Docking & Drug Discovery', 
           level: 86, 
-          icon: <Flask className="w-8 h-8" />,
+          icon: <Atom className="w-8 h-8" />,
           tools: ['AutoDock Vina', 'PyRx', 'Discovery Studio', 'SwissADME']
         },
       ],
@@ -159,7 +157,7 @@ const Skills = () => {
         { 
           name: 'Metabolomics', 
           level: 84, 
-          icon: <Flask className="w-8 h-8" />,
+          icon: <Atom className="w-8 h-8" />,
           tools: ['MetaboAnalyst', 'XCMS', 'GNPS', 'mzMine']
         },
         { 
