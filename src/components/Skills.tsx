@@ -1,81 +1,143 @@
+
 import React, { useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Progress } from '@/components/ui/progress';
 import { 
   BrainCircuit, 
   Code, 
   Microscope, 
   Wrench,
   Dna,
-  Activity,
   Database,
   Network,
   FileCode,
   BarChart3,
   Terminal,
-  Coffee,
   Globe,
-  Shield,
-  Puzzle,
-  Rocket,
   Cloud,
-  Server
+  Server,
+  Atom
 } from 'lucide-react';
 
+const CircularProgress = ({ value, size = 120, strokeWidth = 10, label, icon }: { 
+  value: number; 
+  size?: number; 
+  strokeWidth?: number;
+  label: string;
+  icon: React.ReactNode;
+}) => {
+  const radius = (size - strokeWidth) / 2;
+  const circumference = radius * 2 * Math.PI;
+  const strokeDashoffset = circumference - (value / 100) * circumference;
+  
+  return (
+    <div className="flex flex-col items-center justify-center mb-2">
+      <div className="relative" style={{ width: size, height: size }}>
+        {/* Background circle */}
+        <svg width={size} height={size} className="transform -rotate-90">
+          <circle
+            cx={size / 2}
+            cy={size / 2}
+            r={radius}
+            fill="transparent"
+            stroke="#2d2d3a"
+            strokeWidth={strokeWidth}
+          />
+          
+          {/* Progress circle */}
+          <circle
+            cx={size / 2}
+            cy={size / 2}
+            r={radius}
+            fill="transparent"
+            stroke="url(#gradient)"
+            strokeWidth={strokeWidth}
+            strokeDasharray={circumference}
+            strokeDashoffset={strokeDashoffset}
+            strokeLinecap="round"
+          />
+          
+          {/* Gradient definition */}
+          <defs>
+            <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#9b87f5" />
+              <stop offset="100%" stopColor="#6E59A5" />
+            </linearGradient>
+          </defs>
+        </svg>
+        
+        {/* Center icon */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="text-purple-400">
+            {icon}
+          </div>
+        </div>
+        
+        {/* Percentage text */}
+        <div className="absolute bottom-1 right-1 bg-purple-900/50 rounded-full px-2 py-0.5 text-xs font-bold text-purple-100">
+          {value}%
+        </div>
+      </div>
+      <span className="text-sm mt-2 text-center text-gray-300 font-medium">{label}</span>
+    </div>
+  );
+};
+
 const Skills = () => {
-  const [activeSkill, setActiveSkill] = useState<string | null>(null);
+  const [activeTab, setActiveTab] = useState("bioinformatics");
 
   const skillCategories = [
     {
-      id: 'core',
-      name: 'Core Skills',
-      icon: <BrainCircuit className="w-5 h-5 text-purple-400" />,
+      id: 'bioinformatics',
+      name: 'Bioinformatics',
+      icon: <Dna className="w-5 h-5 text-purple-400" />,
       skills: [
-        { name: 'Bioinformatics & Computational Biology', level: 90, icon: <Dna className="w-6 h-6 text-purple-400" /> },
-        { name: 'Metagenomics & Gut Microbiome Analysis', level: 85, icon: <Database className="w-6 h-6 text-purple-400" /> },
-        { name: 'Cancer Bioinformatics (Precision Oncology)', level: 80, icon: <Activity className="w-6 h-6 text-purple-400" /> },
-        { name: 'AI & ML in Healthcare & Genomics', level: 85, icon: <BrainCircuit className="w-6 h-6 text-purple-400" /> },
-        { name: 'NGS Data Analysis (DNA, RNA, Epigenomics)', level: 95, icon: <Database className="w-6 h-6 text-purple-400" /> },
-        { name: 'Systems Biology & Network Analysis', level: 80, icon: <Network className="w-6 h-6 text-purple-400" /> },
+        { name: 'Metagenomics & Microbiome Analysis', level: 92, icon: <Database className="w-8 h-8" /> },
+        { name: 'Cancer Bioinformatics', level: 90, icon: <Atom className="w-8 h-8" /> },
+        { name: 'NGS Data Analysis', level: 94, icon: <Dna className="w-8 h-8" /> },
+        { name: 'Systems Biology & Networks', level: 85, icon: <Network className="w-8 h-8" /> },
+        { name: 'Immunoinformatics', level: 88, icon: <Microscope className="w-8 h-8" /> },
+        { name: 'Molecular Docking', level: 86, icon: <Atom className="w-8 h-8" /> },
       ],
     },
     {
-      id: 'technical',
-      name: 'Technical Skills',
+      id: 'ai-ml',
+      name: 'AI & ML',
+      icon: <BrainCircuit className="w-5 h-5 text-purple-400" />,
+      skills: [
+        { name: 'TensorFlow & Keras', level: 88, icon: <BrainCircuit className="w-8 h-8" /> },
+        { name: 'Scikit-learn & PyTorch', level: 86, icon: <Code className="w-8 h-8" /> },
+        { name: 'NLP & Large Language Models', level: 82, icon: <FileCode className="w-8 h-8" /> },
+        { name: 'Computer Vision & OpenCV', level: 80, icon: <BrainCircuit className="w-8 h-8" /> },
+        { name: 'XGBoost & AutoML', level: 85, icon: <BarChart3 className="w-8 h-8" /> },
+        { name: 'Generative AI Applications', level: 78, icon: <BrainCircuit className="w-8 h-8" /> },
+      ],
+    },
+    {
+      id: 'programming',
+      name: 'Programming',
       icon: <Code className="w-5 h-5 text-purple-400" />,
       skills: [
-        { name: 'Python', level: 95, icon: <FileCode className="w-6 h-6 text-purple-400" /> },
-        { name: 'R', level: 90, icon: <BarChart3 className="w-6 h-6 text-purple-400" /> },
-        { name: 'Perl', level: 75, icon: <Terminal className="w-6 h-6 text-purple-400" /> },
-        { name: 'Java', level: 70, icon: <Coffee className="w-6 h-6 text-purple-400" /> },
-        { name: 'HTML/CSS/JavaScript', level: 80, icon: <Globe className="w-6 h-6 text-purple-400" /> },
-        { name: 'ReactJS', level: 75, icon: <Code className="w-6 h-6 text-purple-400" /> },
+        { name: 'Python', level: 95, icon: <FileCode className="w-8 h-8" /> },
+        { name: 'R', level: 92, icon: <BarChart3 className="w-8 h-8" /> },
+        { name: 'Perl & Shell/Bash', level: 88, icon: <Terminal className="w-8 h-8" /> },
+        { name: 'Java & C++', level: 80, icon: <Code className="w-8 h-8" /> },
+        { name: 'JavaScript & ReactJS', level: 85, icon: <Globe className="w-8 h-8" /> },
+        { name: 'SQL & NoSQL', level: 86, icon: <Database className="w-8 h-8" /> },
       ],
     },
     {
       id: 'specialized',
-      name: 'Specialized Research',
+      name: 'Specialized',
       icon: <Microscope className="w-5 h-5 text-purple-400" />,
       skills: [
-        { name: 'Immunoinformatics & Vaccine Design', level: 85, icon: <Shield className="w-6 h-6 text-purple-400" /> },
-        { name: 'Molecular Docking & Drug Discovery', level: 80, icon: <Dna className="w-6 h-6 text-purple-400" /> },
-        { name: 'Genome Assembly & Scaffolding', level: 90, icon: <Puzzle className="w-6 h-6 text-purple-400" /> },
-        { name: 'Single Cell Genomics', level: 75, icon: <Microscope className="w-6 h-6 text-purple-400" /> },
-        { name: 'SpaceOmics', level: 70, icon: <Rocket className="w-6 h-6 text-purple-400" /> },
-        { name: 'NeuroOmics', level: 75, icon: <BrainCircuit className="w-6 h-6 text-purple-400" /> },
-      ],
-    },
-    {
-      id: 'tools',
-      name: 'Tools & Platforms',
-      icon: <Wrench className="w-5 h-5 text-purple-400" />,
-      skills: [
-        { name: 'TensorFlow / Keras / PyTorch', level: 85, icon: <BrainCircuit className="w-6 h-6 text-purple-400" /> },
-        { name: 'MySQL / MongoDB / PostgreSQL', level: 80, icon: <Database className="w-6 h-6 text-purple-400" /> },
-        { name: 'AWS / Google Cloud', level: 75, icon: <Cloud className="w-6 h-6 text-purple-400" /> },
-        { name: 'Tableau / Power BI', level: 80, icon: <BarChart3 className="w-6 h-6 text-purple-400" /> },
-        { name: 'Scikit-learn / Pandas / NumPy', level: 90, icon: <FileCode className="w-6 h-6 text-purple-400" /> },
-        { name: 'Docker / Kubernetes', level: 75, icon: <Server className="w-6 h-6 text-purple-400" /> },
+        { name: 'Genome Assembly & Scaffolding', level: 90, icon: <Dna className="w-8 h-8" /> },
+        { name: 'Single Cell Genomics', level: 88, icon: <Microscope className="w-8 h-8" /> },
+        { name: 'NeuroOmics & SpaceOmics', level: 80, icon: <Atom className="w-8 h-8" /> },
+        { name: 'Metabolomics', level: 84, icon: <Terminal className="w-8 h-8" /> },
+        { name: 'Data Visualization', level: 90, icon: <BarChart3 className="w-8 h-8" /> },
+        { name: 'Cloud Computing & Big Data', level: 85, icon: <Cloud className="w-8 h-8" /> },
       ],
     },
   ];
@@ -96,8 +158,13 @@ const Skills = () => {
           </p>
         </div>
         
-        <Tabs defaultValue="core" className="w-full">
-          <TabsList className="grid grid-cols-2 md:grid-cols-4 mb-8 bg-transparent">
+        <Tabs 
+          defaultValue="bioinformatics" 
+          className="w-full"
+          value={activeTab}
+          onValueChange={setActiveTab}
+        >
+          <TabsList className="grid grid-cols-2 md:grid-cols-4 mb-12 bg-transparent">
             {skillCategories.map((category) => (
               <TabsTrigger 
                 key={category.id}
@@ -111,42 +178,102 @@ const Skills = () => {
           </TabsList>
           
           {skillCategories.map((category) => (
-            <TabsContent key={category.id} value={category.id} className="mt-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {category.skills.map((skill, index) => (
-                  <Card 
-                    key={index}
-                    className={`bg-bio-card border-purple-800/30 hover:border-purple-600/50 transition-all duration-300 hover:shadow-lg hover:shadow-purple-900/20 ${
-                      activeSkill === `${category.id}-${index}` ? 'border-purple-500 shadow-lg shadow-purple-700/20' : ''
-                    }`}
-                    onMouseEnter={() => setActiveSkill(`${category.id}-${index}`)}
-                    onMouseLeave={() => setActiveSkill(null)}
-                  >
-                    <CardContent className="p-6">
-                      <div className="flex items-center gap-3 mb-4">
-                        <div className="text-2xl">{skill.icon}</div>
-                        <h4 className="font-medium text-white">{skill.name}</h4>
+            <TabsContent key={category.id} value={category.id} className="mt-6 animate-fade-in">
+              <Card className="bg-bio-card border-purple-800/30 p-6">
+                <CardContent className="p-0">
+                  <h3 className="text-xl font-medium text-purple-300 mb-8 text-center">{category.name} Expertise</h3>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12">
+                    {category.skills.map((skill, index) => (
+                      <div key={index} className="flex flex-col items-center">
+                        <CircularProgress 
+                          value={skill.level} 
+                          label={skill.name} 
+                          icon={skill.icon} 
+                        />
                       </div>
-                      <div className="w-full bg-gray-800 rounded-full h-2.5">
-                        <div 
-                          className="bg-gradient-to-r from-purple-500 to-purple-700 h-2.5 rounded-full transition-all duration-1000 ease-out"
-                          style={{ 
-                            width: activeSkill === `${category.id}-${index}` ? `${skill.level}%` : '0%'
-                          }}
-                        ></div>
-                      </div>
-                      <div className="mt-2 text-right text-sm text-purple-300 font-medium">
-                        {skill.level}%
-                      </div>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
+                    ))}
+                  </div>
+                  
+                  <div className="mt-10 pt-8 border-t border-purple-800/30">
+                    <h4 className="text-lg font-medium text-purple-300 mb-4">Tools & Technologies</h4>
+                    <div className="flex flex-wrap gap-3">
+                      {category.id === 'bioinformatics' && (
+                        <>
+                          <ToolTag text="QIIME2" />
+                          <ToolTag text="MetaPhlAn" />
+                          <ToolTag text="HUMAnN" />
+                          <ToolTag text="TCGA" />
+                          <ToolTag text="maftools" />
+                          <ToolTag text="BWA" />
+                          <ToolTag text="STAR" />
+                          <ToolTag text="GATK" />
+                          <ToolTag text="DESeq2" />
+                          <ToolTag text="EdgeR" />
+                          <ToolTag text="Cytoscape" />
+                        </>
+                      )}
+                      {category.id === 'ai-ml' && (
+                        <>
+                          <ToolTag text="TensorFlow" />
+                          <ToolTag text="Keras" />
+                          <ToolTag text="PyTorch" />
+                          <ToolTag text="scikit-learn" />
+                          <ToolTag text="XGBoost" />
+                          <ToolTag text="OpenCV" />
+                          <ToolTag text="NLP" />
+                          <ToolTag text="LLMs" />
+                          <ToolTag text="AutoML" />
+                          <ToolTag text="Transformers" />
+                        </>
+                      )}
+                      {category.id === 'programming' && (
+                        <>
+                          <ToolTag text="Python" />
+                          <ToolTag text="R" />
+                          <ToolTag text="Perl" />
+                          <ToolTag text="Java" />
+                          <ToolTag text="C++" />
+                          <ToolTag text="Shell/Bash" />
+                          <ToolTag text="HTML/CSS" />
+                          <ToolTag text="JavaScript" />
+                          <ToolTag text="ReactJS" />
+                          <ToolTag text="Django" />
+                          <ToolTag text="Flask" />
+                        </>
+                      )}
+                      {category.id === 'specialized' && (
+                        <>
+                          <ToolTag text="SPAdes" />
+                          <ToolTag text="Velvet" />
+                          <ToolTag text="RagTag" />
+                          <ToolTag text="Seurat" />
+                          <ToolTag text="Scanpy" />
+                          <ToolTag text="Cell Ranger" />
+                          <ToolTag text="Allen Brain Atlas" />
+                          <ToolTag text="NASA GeneLab" />
+                          <ToolTag text="MetaboAnalyst" />
+                          <ToolTag text="XCMS" />
+                          <ToolTag text="ggplot2" />
+                          <ToolTag text="BioRender" />
+                        </>
+                      )}
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
             </TabsContent>
           ))}
         </Tabs>
       </div>
     </section>
+  );
+};
+
+const ToolTag = ({ text }: { text: string }) => {
+  return (
+    <span className="bg-purple-900/50 text-purple-200 text-xs px-3 py-1 rounded-full border border-purple-800/30">
+      {text}
+    </span>
   );
 };
 
