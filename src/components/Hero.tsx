@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import ThreeScene from './ThreeScene';
@@ -26,12 +25,11 @@ const Hero = () => {
           </h1>
           
           <h2 className="text-2xl md:text-3xl font-bold mb-4 text-purple-300">
-            Decoding Life's Blueprints
+            Turning Biological Chaos into Computational Clarity
           </h2>
           
           <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-            Integrating genomic insights with computational expertise to address complex biological challenges
-            in cancer research, metagenomics, and precision medicine.
+            Blending code with biology to decode microbial ecosystems, cancer genomes, and drug targets. Passionate about metagenomics, AI, and building scalable bioinformatics pipelines that drive real-world impact.
           </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -45,20 +43,18 @@ const Hero = () => {
             <Button 
               size="lg" 
               className="border-2 border-purple-500 bg-transparent hover:bg-purple-950/50 text-white px-8 transition-all duration-300"
-              onClick={() => window.open('/#contact', '_self')}
+              onClick={() => window.open('https://forms.gle/PXMzPFvZtbBYv1oU6', '_blank')}
             >
-              Schedule Consultation
+              Learn Bioinformatics 1-on-1
             </Button>
           </div>
           
           <div className="mt-12 pt-6 border-t border-gray-800">
             <p className="text-sm text-gray-400 mb-3">Specialized Expertise In</p>
             <div className="flex flex-wrap justify-center gap-4">
-              <ExpertiseTag text="Bioinformatics" icon={<Dna className="w-4 h-4 text-purple-300" strokeWidth={1.5} />} />
-              <ExpertiseTag text="Metagenomics" icon={<Database className="w-4 h-4 text-purple-300" strokeWidth={1.5} />} />
-              <ExpertiseTag text="AI & Machine Learning" icon={<BrainCircuit className="w-4 h-4 text-purple-300" strokeWidth={1.5} />} />
-              <ExpertiseTag text="Drug Discovery" icon={<Database className="w-4 h-4 text-purple-300" strokeWidth={1.5} />} />
-              <ExpertiseTag text="Genomics" icon={<Dna className="w-4 h-4 text-purple-300" strokeWidth={1.5} />} />
+              <ExpertiseTag text="AI-Driven Bioinformatics Solutions" icon={<BrainCircuit className="w-4 h-4 text-purple-300" strokeWidth={1.5} />} />
+              <ExpertiseTag text="Microbiome & Metagenomics Analytics" icon={<Database className="w-4 h-4 text-purple-300" strokeWidth={1.5} />} />
+              <ExpertiseTag text="Genomics & Precision Medicine" icon={<Dna className="w-4 h-4 text-purple-300" strokeWidth={1.5} />} />
             </div>
           </div>
         </div>

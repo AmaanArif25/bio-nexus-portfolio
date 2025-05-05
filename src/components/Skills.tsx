@@ -324,9 +324,9 @@ const Skills = () => {
                       <Button 
                         variant="outline" 
                         className="bg-purple-900/50 hover:bg-purple-800 text-white border-purple-700 transition-all duration-300"
-                        onClick={() => window.open('/#contact', '_self')}
+                        onClick={() => window.open('https://forms.gle/PXMzPFvZtbBYv1oU6', '_blank')}
                       >
-                        Discuss Your Project
+                        Learn Bioinformatics 1-on-1
                       </Button>
                     </div>
                   </div>

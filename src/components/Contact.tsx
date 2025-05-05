@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -8,47 +7,50 @@ import { useToast } from '@/components/ui/use-toast';
 
 const Contact = () => {
   const { toast } = useToast();
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: '',
-    newsletter: false
-  });
-  
   const [isSubmitting, setIsSubmitting] = useState(false);
   
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-  };
-  
-  const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, checked } = e.target;
-    setFormData(prev => ({ ...prev, [name]: checked }));
-  };
-  
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
-    setTimeout(() => {
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    const newsletter = formData.get('newsletter') === 'on';
+    
+    try {
+      const response = await fetch('https://formspree.io/f/xzzrdjqq', {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        // If user wants to subscribe to newsletter, redirect to LinkedIn newsletter
+        if (newsletter) {
+          window.open('https://www.linkedin.com/newsletters/the-bioinformatics-dev-7323245556741369857/', '_blank');
+        }
+
+        toast({
+          title: "Message sent successfully!",
+          description: "Thank you for reaching out. I'll get back to you soon.",
+        });
+        
+        // Reset form
+        form.reset();
+      } else {
+        throw new Error('Failed to send message');
+      }
+    } catch (error) {
       toast({
-        title: "Message sent!",
-        description: "Thanks for reaching out. I'll get back to you soon.",
+        title: "Error",
+        description: "There was an error sending your message. Please try again later.",
+        variant: "destructive",
       });
-      
-      setFormData({
-        name: '',
-        email: '',
-        subject: '',
-        message: '',
-        newsletter: false
-      });
-      
+    } finally {
       setIsSubmitting(false);
-    }, 1500);
+    }
   };
 
   const contactMethods = [
@@ -60,8 +62,8 @@ const Contact = () => {
         </svg>
       ),
       title: 'Email',
-      value: 'contact@bionexus.com',
-      link: 'mailto:contact@bionexus.com'
+      value: 'arif.amaan25lko@gmail.com',
+      link: 'mailto:arif.amaan25lko@gmail.com'
     },
     {
       icon: (
@@ -70,19 +72,8 @@ const Contact = () => {
         </svg>
       ),
       title: 'Phone',
-      value: '+1 (555) 123-4567',
-      link: 'tel:+15551234567'
-    },
-    {
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-purple-500">
-          <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
-          <circle cx="12" cy="10" r="3"></circle>
-        </svg>
-      ),
-      title: 'Location',
-      value: 'Boston, MA, USA',
-      link: 'https://maps.google.com/?q=Boston,MA,USA'
+      value: '+91 9026854518',
+      link: 'tel:+919026854518'
     }
   ];
 
@@ -128,7 +119,7 @@ const Contact = () => {
               <h3 className="text-xl font-bold text-white mb-4">Connect with me</h3>
               
               <div className="flex gap-4">
-                <a href="#" className="bg-purple-900/30 p-3 rounded-lg hover:bg-purple-800/50 transition-colors">
+                <a href="https://www.linkedin.com/in/amaanarif/" target="_blank" rel="noopener noreferrer" className="bg-purple-900/30 p-3 rounded-lg hover:bg-purple-800/50 transition-colors">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-purple-500">
                     <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
                     <rect x="2" y="9" width="4" height="12"></rect>
@@ -136,23 +127,16 @@ const Contact = () => {
                   </svg>
                 </a>
                 
-                <a href="#" className="bg-purple-900/30 p-3 rounded-lg hover:bg-purple-800/50 transition-colors">
+                <a href="https://github.com/AmaanArif25" target="_blank" rel="noopener noreferrer" className="bg-purple-900/30 p-3 rounded-lg hover:bg-purple-800/50 transition-colors">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-purple-500">
                     <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
                   </svg>
                 </a>
                 
-                <a href="#" className="bg-purple-900/30 p-3 rounded-lg hover:bg-purple-800/50 transition-colors">
+                <a href="https://scholar.google.com/citations?user=i2xR3TwAAAAJ&hl=en&authuser=3" target="_blank" rel="noopener noreferrer" className="bg-purple-900/30 p-3 rounded-lg hover:bg-purple-800/50 transition-colors">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-purple-500">
-                    <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
-                  </svg>
-                </a>
-                
-                <a href="#" className="bg-purple-900/30 p-3 rounded-lg hover:bg-purple-800/50 transition-colors">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-purple-500">
-                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
                   </svg>
                 </a>
               </div>
@@ -171,8 +155,6 @@ const Contact = () => {
                       id="name"
                       name="name"
                       placeholder="John Doe"
-                      value={formData.name}
-                      onChange={handleChange}
                       required
                       className="bg-purple-900/20 border-purple-800/30 focus:border-purple-500 focus-visible:ring-purple-500/30"
                     />
@@ -185,8 +167,6 @@ const Contact = () => {
                       name="email"
                       type="email"
                       placeholder="john.doe@example.com"
-                      value={formData.email}
-                      onChange={handleChange}
                       required
                       className="bg-purple-900/20 border-purple-800/30 focus:border-purple-500 focus-visible:ring-purple-500/30"
                     />
@@ -199,8 +179,6 @@ const Contact = () => {
                     id="subject"
                     name="subject"
                     placeholder="How can I help you?"
-                    value={formData.subject}
-                    onChange={handleChange}
                     required
                     className="bg-purple-900/20 border-purple-800/30 focus:border-purple-500 focus-visible:ring-purple-500/30"
                   />
@@ -212,8 +190,6 @@ const Contact = () => {
                     id="message"
                     name="message"
                     placeholder="Write your message here..."
-                    value={formData.message}
-                    onChange={handleChange}
                     required
                     rows={4}
                     className="bg-purple-900/20 border-purple-800/30 focus:border-purple-500 focus-visible:ring-purple-500/30"
@@ -225,12 +201,10 @@ const Contact = () => {
                     type="checkbox"
                     id="newsletter"
                     name="newsletter"
-                    checked={formData.newsletter}
-                    onChange={handleCheckboxChange}
                     className="h-4 w-4 rounded border-purple-300 text-purple-600 focus:ring-purple-500"
                   />
                   <label htmlFor="newsletter" className="text-sm text-gray-300">
-                    Subscribe to my newsletter for bioinformatics insights
+                    Subscribe to my LinkedIn newsletter for bioinformatics insights and updates
                   </label>
                 </div>
                 

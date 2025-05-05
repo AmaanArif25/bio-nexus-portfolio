@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
@@ -6,7 +5,8 @@ import About from '@/components/About';
 import Skills from '@/components/Skills';
 import Projects from '@/components/Projects';
 import Services from '@/components/Services';
-import Blog from '@/components/Blog';
+import BioBytes from '@/components/BioBytes';
+import Certifications from '@/components/Certifications';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import { useToast } from "@/components/ui/use-toast";
@@ -55,7 +55,8 @@ const Index = () => {
       <Skills />
       <Projects />
       <Services />
-      <Blog />
+      <BioBytes />
+      <Certifications />
       <Contact />
       <Footer />
     </div>

@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
@@ -53,8 +52,8 @@ const Navbar = () => {
               {item.name}
             </a>
           ))}
-          <Button className="ml-4 bg-purple-600 hover:bg-purple-700">
-            Get in Touch
+          <Button className="ml-4 bg-purple-600 hover:bg-purple-700" onClick={() => window.open('https://forms.gle/PXMzPFvZtbBYv1oU6', '_blank')}>
+            Book Class
           </Button>
         </nav>
 
@@ -92,8 +91,8 @@ const Navbar = () => {
                 {item.name}
               </a>
             ))}
-            <Button className="mt-2 bg-purple-600 hover:bg-purple-700">
-              Get in Touch
+            <Button className="mt-2 bg-purple-600 hover:bg-purple-700" onClick={() => window.open('https://forms.gle/PXMzPFvZtbBYv1oU6', '_blank')}>
+              Book Class
             </Button>
           </div>
         </nav>
